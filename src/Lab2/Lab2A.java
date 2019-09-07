@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 // First Spring Example Using Java Based Configuration (Spring IOC)
-public class Lab1A {
+public class Lab2A {
 	public static void main(String[] args) {
 		/*
 		// Without IOC
