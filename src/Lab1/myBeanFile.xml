@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Default name for this bean configuration file is "applicationContext.xml" , if we don't provide our own name -->
+	<!-- A bean configuration -->
+	<bean id="aobj" class="Lab1.A">
+	<property name="a" value="99"/>
+	<property name="msg" value="Hello Guys"/>
+	</bean>
+	
+	<!-- B bean configuration -->
+	<bean id="bobj" class="Lab1.B">
+	<constructor-arg value="88"/>
+	<constructor-arg value="Hai Guys"/>
+	</bean>
+	
+	<!-- Hello bean configuration -->
+	<bean id="hello" class="Lab1.Hello">
+	<property name="aobj" ref="aobj"/>
+	<constructor-arg ref="bobj"/>
+	</bean>
+</beans>
