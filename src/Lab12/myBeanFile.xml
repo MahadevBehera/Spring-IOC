@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Default name for this bean configuration file is "applicationContext.xml" , if we don't provide our own name -->
+	<!-- Address bean configuration -->
+	<bean id="add" class="Lab12.Address">
+	<constructor-arg value="Bangalore"/>
+	<constructor-arg value="BTM Layout"/>
+	<constructor-arg value="KA"/>
+	</bean>
+	
+	<!-- Account bean configuration (1)-->
+	<bean id="acc1" class="Lab12.Account">
+	<property name="accno" value="101"/>
+	<property name="atype" value="SA"/>
+	<property name="bal" value="10000.00"/>
+	</bean>
+	<!-- Account bean configuration (2)-->
+	<bean id="acc2" class="Lab12.Account">
+	<property name="accno" value="102"/>
+	<property name="atype" value="SA"/>
+	<property name="bal" value="20000.00"/>
+	</bean>
+	<!-- Account bean configuration (3)-->
+	<bean id="acc3" class="Lab12.Account">
+	<property name="accno" value="103"/>
+	<property name="atype" value="CA"/>
+	<property name="bal" value="35000.00"/>
+	</bean>
+	
+	<!-- Customer bean configuration -->
+	<bean id="cust" class="Lab12.Customer">
+	<constructor-arg value="101"/>
+	<constructor-arg value="Dev"/>
+	<constructor-arg value="dev@gmail"/>
+	<constructor-arg value="99999"/>
+	
+	<constructor-arg>
+	<list>
+	<value>aa@gmail</value>
+	<value>bb@gmail</value>
+	<value>cc@gmail</value>
+	</list>
+	</constructor-arg>
+	
+	<constructor-arg>
+	<set>
+	<value>111</value>
+	<value>222</value>
+	<value>333</value>
+	</set>
+	</constructor-arg>
+	
+	<constructor-arg ref="add"/>
+	
+	<property name="refs">
+	<map>
+	<entry key="AA" value="11"></entry>
+	<entry key="BB" value="22"></entry>
+	<entry key="CC" value="33"></entry>
+	</map>
+	</property>
+	
+	<property name="myprops">
+	<props>
+	<prop key="DD">44</prop>
+	<prop key="EE">55</prop>
+	<prop key="FF">66</prop>
+	</props>
+	</property>
+	
+	<property name="accounts">
+	<list>
+	<ref bean="acc1"/>
+	<ref bean="acc2"/>
+	<ref bean="acc3"/>
+	</list>
+	</property>
+	
+	</bean>
+</beans>
