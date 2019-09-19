@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Default name for this bean configuration file is "applicationContext.xml" , if we don't provide our own name -->
+	
+	<!-- Hello bean configuration --> <!-- No Bean found of Type A and B for Hello Bean, So both A and B type bean dependencies will not be injected remains "null" -->
+	<bean id="hello" class="Lab17.Hello" autowire="byType"> <!-- Used autowire byType to setting dependency using setter inject and detection will be based on Property Type of Hello bean -->
+	</bean>
+</beans>
