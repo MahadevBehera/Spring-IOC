@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Default name for this bean configuration file is "applicationContext.xml" , if we don't provide our own name -->
+	<!-- A bean configuration -->
+	<bean id="aobj" class="Lab14.A" p:a="10" p:msg="AAA"> <!-- Used p-namespace for setting property without using <property> tag and we can use it in setter injection only -->
+	</bean>
+	
+	<!-- B bean configuration -->
+	<bean id="bo" class="Lab14.B">
+	<constructor-arg value="88"/>
+	<constructor-arg value="Hai Guys"/>
+	</bean>
+	
+	<!-- Hello bean configuration --> <!-- "aobj" bean will be injected but "bo" bean will not be able to inject because the property name for B type bean is defined with name "bobj" inside Hello bean -->
+	<bean id="hello" class="Lab14.Hello" autowire="byName"> <!-- Used autowire byName to setting dependency using setter inject and detection will be based on Property name of Hello bean -->
+	</bean>
+</beans>
