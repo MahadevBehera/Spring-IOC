@@ -16,7 +16,7 @@ public class Hello {
 
 	public void show() {
 		System.out.println("show in Hello");
-		System.out.println(aobj); // A [a=10, msg=AAA]
+		System.out.println(aobj); // A [a=99, msg=Hello Guys]
 		System.out.println(bobj); // null
 	}
 }
