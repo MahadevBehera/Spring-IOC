@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Default name for this bean configuration file is "applicationContext.xml" , if we don't provide our own name -->
+	<!-- A bean configuration (1) -->
+	<bean id="aobj" class="Lab18.A" p:a="10" p:msg="AAA"> <!-- Used p-namespace for setting property without using <property> tag and we can use it in setter injection only -->
+	</bean>
+	<!-- A bean configuration (2) -->
+	<bean id="ao2" class="Lab18.A" p:a="20" p:msg="BBB"> <!-- Used p-namespace for setting property without using <property> tag and we can use it in setter injection only -->
+	</bean>
+	
+	<!-- B bean configuration -->
+	<bean id="bo" class="Lab18.B">
+	<constructor-arg value="88"/>
+	<constructor-arg value="Hai Guys"/>
+	</bean>
+	
+	<!-- Hello bean configuration --> <!-- "aobj" bean will not able to inject because the property type for A type bean is defined two times so container will not able inject the bean and will throw exception -->
+	<bean id="hello" class="Lab18.Hello" autowire="byType"> <!-- Used autowire byType to setting dependency using setter inject and detection will be based on Property Type of Hello bean -->
+	</bean>
+</beans>
