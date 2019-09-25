@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Default name for this bean configuration file is "applicationContext.xml" , if we don't provide our own name -->
+	
+	<!-- B bean configuration -->
+	<bean id="bo" class="Lab24.B">
+	<constructor-arg value="88"/>
+	<constructor-arg value="Hai Guys"/>
+	</bean>
+	
+	<!-- Hello bean configuration --> <!-- Only one bean will be injected using Hello-(B) constructor, because only B type bean is running in container and appropriate constructor also defined with 1 arguments -->
+	<bean id="hello" class="Lab24.Hello" autowire="constructor"> <!-- Used autowire constructor to setting dependency using constructor inject and detection will be based on Property Type of Hello bean first if more than one bean found then it will go for Property Name -->
+	</bean>
+</beans>
