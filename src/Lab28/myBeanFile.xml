@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Default name for this bean configuration file is "applicationContext.xml" , if we don't provide our own name -->
+	<!-- A bean configuration -->
+	<bean id="aobj" class="Lab28.A" p:a="10" p:msg="AAA"> <!-- Used p-namespace for setting property without using <property> tag and we can use it in setter injection only -->
+	</bean>
+	 
+	<!-- B bean configuration -->
+	<bean id="bo" class="Lab28.B">
+	<constructor-arg value="88"/>
+	<constructor-arg value="Hai Guys"/>
+	</bean>
+	
+	<!-- Hello bean configuration --> <!-- Both bean will not be injected Object of Hello bean will be created using Hello-() constructor, because both A & B type bean is found running in container,But there is no Matching constructor in Hello class -->
+	<bean id="hello" class="Lab28.Hello" autowire="constructor"> <!-- Used autowire constructor to setting dependency using constructor inject and detection will be based on Property Type of Hello bean first if more than one bean found then it will go for Property Name -->
+	</bean>
+</beans>
