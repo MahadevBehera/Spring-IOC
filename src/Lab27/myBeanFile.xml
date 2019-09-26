@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Default name for this bean configuration file is "applicationContext.xml" , if we don't provide our own name -->
+	<!-- A bean configuration -->
+	<bean id="aobj" class="Lab27.A" p:a="10" p:msg="AAA"> <!-- Used p-namespace for setting property without using <property> tag and we can use it in setter injection only -->
+	</bean>
+	
+	<bean id="ao1" class="Lab27.A" p:a="11" p:msg="AAA--A">
+	</bean>
+	 
+	<!-- B bean configuration -->
+	<bean id="bo1" class="Lab27.B">
+	<constructor-arg value="88"/>
+	<constructor-arg value="Hai Guys"/>
+	</bean>
+	
+	<bean id="bo2" class="Lab27.B">
+	<constructor-arg value="99"/>
+	<constructor-arg value="BBB"/>
+	</bean>
+	
+	<!-- Hello bean configuration --> <!-- Only A bean will be injected using Hello-(A) constructor, because both A & B type bean is found more than one bean running in container, So it will be able to resolve ByName for only A type bean not for B type bean -->
+	<bean id="hello" class="Lab27.Hello" autowire="constructor"> <!-- Used autowire constructor to setting dependency using constructor inject and detection will be based on Property Type of Hello bean first if more than one bean found then it will go for Property Name -->
+	</bean>
+</beans>
