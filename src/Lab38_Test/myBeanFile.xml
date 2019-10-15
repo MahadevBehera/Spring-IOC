@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:annotation-config/> <!-- We have to enable annotation processing for XML based configuration by using "context" namespace, because XML based annotation is disabled by Default -->
+	<!-- Default name for this bean configuration file is "applicationContext.xml" , if we don't provide our own name -->
+	<!-- A bean configuration -->
+	<bean id="aobj" class="Lab38_Test.A">
+	<property name="a" value="99"/>
+	<property name="msg" value="Hello Guys"/>
+	</bean>
+	
+	<!-- B bean configuration -->
+	<bean id="bo" class="Lab38_Test.B">
+	<constructor-arg value="88"/>
+	<constructor-arg value="Hai Guys"/>
+	</bean>
+	
+	<!-- Hai Bean configuration -->
+	<bean id="hai" class="Lab38_Test.Hai">
+	<property name="phone" value="12345"></property>
+	</bean>	
+	
+	<!-- Hello bean configuration --> 
+	<bean id="hello" class="Lab38_Test.Hello" autowire="byName">
+	<property name="data" value="Mahadev"></property>
+	</bean>
+</beans>
